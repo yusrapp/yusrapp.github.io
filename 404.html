@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yusr — Open the app</title>
+  <style>
+    body { font-family: -apple-system, system-ui, sans-serif; background:#0f1419; color:#e6edf3;
+           display:flex; min-height:100vh; align-items:center; justify-content:center; margin:0; text-align:center; }
+    .card { max-width:340px; padding:32px 24px; }
+    h1 { font-size:20px; margin:0 0 8px; }
+    p  { opacity:.7; font-size:14px; line-height:1.5; margin:0 0 20px; }
+    a.btn { display:inline-block; background:#2ea043; color:#fff; text-decoration:none;
+            padding:12px 22px; border-radius:10px; font-weight:600; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Open in Yusr 🌙</h1>
+    <p id="msg">If you have the app installed it should have opened automatically. Otherwise, get it below.</p>
+    <a class="btn" id="store" href="#">Get the app</a>
+  </div>
+  <script>
+    // This page is only reached as a FALLBACK: the app was not installed, or the link
+    // was opened in a plain browser. Universal Links / App Links intercept /surah/* on
+    // devices that have the app before this page ever loads.
+    (function () {
+      var ua = navigator.userAgent || "";
+      var isIOS = /iPhone|iPad|iPod/i.test(ua);
+      var play = "https://play.google.com/store/apps/details?id=com.keefa.wudu";
+      var appStore = "https://apps.apple.com/app/id6768202893";
+      document.getElementById("store").href = isIOS ? appStore : play;
+      // A group khatma invite: say what it is, and that the link works once Yusr is in.
+      if (location.pathname.indexOf("/khatma/") === 0) {
+        var ar = (navigator.language || "").indexOf("ar") === 0;
+        document.querySelector("h1").textContent = ar ? "دعوة إلى ختمة جماعية 🤲" : "You're invited to a group khatma 🤲";
+        document.getElementById("msg").textContent = ar
+          ? "ثبّت تطبيق يُسر، ثم افتح هذا الرابط مرة أخرى لتنضم إلى الختمة."
+          : "Install Yusr, then open this link again to join the khatma.";
+        document.getElementById("store").textContent = ar ? "حمّل التطبيق" : "Get the app";
+      }
+      // A shared azkar category: same idea, the link opens it once Yusr is in.
+      if (location.pathname.indexOf("/azkar/") === 0) {
+        var arAzkar = (navigator.language || "").indexOf("ar") === 0;
+        document.querySelector("h1").textContent = arAzkar ? "أذكار من تطبيق يُسر 🌙" : "Azkar from the Yusr app 🌙";
+        document.getElementById("msg").textContent = arAzkar
+          ? "ثبّت تطبيق يُسر، ثم افتح هذا الرابط مرة أخرى لتصل إلى الأذكار مباشرة."
+          : "Install Yusr, then open this link again to go straight to these azkar.";
+        document.getElementById("store").textContent = arAzkar ? "حمّل التطبيق" : "Get the app";
+      }
+    })();
+  </script>
+</body>
+</html>

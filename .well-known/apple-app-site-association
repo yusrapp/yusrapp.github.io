@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["ZTT8C78CVV.com.keefa.wudu.Wudu"],
+        "components": [
+          { "/": "/surah/*", "comment": "Open a shared surah directly in the Yusr app" },
+          { "/": "/khatma/*", "comment": "Join a group khatma from an invite link" },
+          { "/": "/azkar/*", "comment": "Open a shared azkar category directly in the Yusr app" }
+        ]
+      }
+    ]
+  }
+}

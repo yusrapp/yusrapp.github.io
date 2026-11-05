@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.keefa.wudu",
+      "sha256_cert_fingerprints": [
+        "45:B6:2E:A3:58:0B:98:96:F6:DC:50:86:7B:7C:A2:C2:14:BC:71:46:96:F3:07:EB:A9:A2:FE:16:D8:31:F2:66",
+        "A3:B1:6A:86:A4:89:D1:F3:13:B6:CD:7F:6C:90:E7:F5:EB:57:7C:9A:97:0E:FC:1A:D0:97:8F:9C:49:4E:E3:12"
+      ]
+    }
+  }
+]
